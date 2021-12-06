@@ -1,11 +1,26 @@
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
+    border-radius: 5px;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 0 0 0.5px #666; /* this draws the table border  */ 
     width: 100%;
+    margin-top: 50px;
   }
   
   td, th {
-    border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 20px;
+    /* border: solid 0.5px white; */
   }
+
+  th:nth-child(even) {
+    border-collapse: collapse;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 1px 0 0 #666; /* this draws the table border  */   
+}
+
+  th:nth-child(odd) {
+    border-collapse: collapse;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 1px 0 0 #666; /* this draws the table border  */   
+}
