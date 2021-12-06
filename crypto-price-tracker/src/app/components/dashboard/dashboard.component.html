@@ -22,7 +22,7 @@
     </section>
 
     <div style="width: 75%; display: block; margin: 0 auto;">
-       <table>
+       <table *ngIf="isDataAvailable">
             <tr>
                 <th>Name</th>
                 <th>Price</th>
@@ -30,36 +30,8 @@
                 <th>Market Cap</th>
                 <th>Supply</th>
             </tr>
-            <tr>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-            </tr>
-            <tr>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-            </tr>
-            <tr>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-            </tr>
-            <tr>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
-            </tr>
-            <tr>
-                <td>TEST</td>
+            <tr *ngFor="let coin of coinsList.coins; let i = index">
+                <td>{{ coinsList.coins[i] }}</td>
                 <td>TEST</td>
                 <td>TEST</td>
                 <td>TEST</td>
