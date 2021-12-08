@@ -33,9 +33,9 @@
             <tr *ngFor="let coin of coinsList.coins; let i = index">
                 <td>{{ coinsList.coins[i] }}</td>
                 <td>${{ coinsList.prices[i] }}</td>
-                <td>TEST</td>
-                <td>TEST</td>
-                <td>TEST</td>
+                <td>{{ coinsList.total_volume[i] }}</td>
+                <td>${{ coinsList.market_cap[i] }}</td>
+                <td>{{ coinsList.total_supply[i] }}</td>
             </tr>
         </table> 
     </div>
