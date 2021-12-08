@@ -15,15 +15,17 @@ export class DashboardComponent implements OnInit {
   isDataAvailable: boolean = false;
 
   coinsList:any = {
-      coins: []
+      coins: [],
+      prices: [],
+      testCoins: ["bitcoin"]
   }
 
   coinListApiCall() 
   {
-    console.log("Starting api call...")
+    console.log("Starting coin list api call...")
     axios({
       method: 'get',
-      url: 'https://api.coingecko.com/api/v3/coins/list',
+      url: 'https://api.coingecko.com/api/v3/coins/list?include_platform=false',
       headers: {
         'Access-Control-Allow-Origin': "*",
         'Content-Type': 'application/json'
@@ -42,7 +44,7 @@ export class DashboardComponent implements OnInit {
 
   priceListApiCall()
   {
-    console.log("Starting api call...")
+    console.log("Starting coin price api call...")
     axios({
       method: 'get',
       url: `https://api.coingecko.com/api/v3/simple/price?ids=${this.coinsList.coins}&vs_currencies=usd`,
@@ -51,15 +53,14 @@ export class DashboardComponent implements OnInit {
         'Content-Type': 'application/json'
       }
     })  
-    .then( (response: any) => {
+    .then( (response: any) => { 
 
-      console.log(response);
+      for(let i=0; i < this.coinsList.coins.length; i++){
+        this.coinsList.prices.push(response.data[this.coinsList.coins[i]].usd);
+      }
+
+      console.log(this.coinsList.prices);
+      console.log(this.coinsList.coins);
     });
   }
-
-  parseCoinsList()
-  {
-    
-  }
-  
 }
